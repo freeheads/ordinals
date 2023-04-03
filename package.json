@@ -1,0 +1,50 @@
+{
+  "author": "devops@freeheads.io",
+  "description": "",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "license": "AGPL-3.0",
+  "name": "ordinals",
+  "repository": {
+    "type": "git",
+    "url": "ssh://github.com/freeheads/ordinals.git"
+  },
+  "type": "commonjs",
+  "version": "1.0.0",
+  "main": "lib/main.js",
+  "types": "lib/main.d.ts",
+  "scripts": {
+    "ci": "yarn lint",
+    "_0lib": "rm -rf dist",
+    "_0tsc": "rm -f tsconfig.tsbuildinfo",
+    "w": "tsc -w",
+    "c": "yarn _0lib && yarn _0tsc && yarn tsc",
+    "build": "yarn && yarn c",
+    "build-dev": "yarn && yarn ci && yarn c",
+    "lint": "eslint --ext=.tsx,.ts src --fix",
+    "lint:fix": "eslint --cache --fix --ext=.tsx,.ts src",
+    "update": "yarn add @wavesrcool/dev",
+    "cycle": "yarn update && yarn build && yarn dev",
+    "start": "NODE_ENV=production node dist/main.js",
+    "dev": "node dist/main.js"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/cors": "^2.8.13",
+    "@types/dotenv-safe": "^8.1.2",
+    "@types/express": "^4.17.16",
+    "@types/node": "^18.8.3",
+    "@types/node-cron": "^3.0.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@wavesrcool/dev": "^0.1.7",
+    "axios": "^1.2.5",
+    "cors": "^2.8.5",
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.18.2",
+    "node-cron": "^3.0.2"
+  }
+}
